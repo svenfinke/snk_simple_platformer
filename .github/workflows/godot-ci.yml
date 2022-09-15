@@ -109,7 +109,7 @@ jobs:
         with:
           butlerApiKey: ${{secrets.BUTLER_API_KEY}}
           gameData: ./build/${{ matrix.channel }}/
-          itchUsername: ${{env.ITCHIO_USERNAME}}
-          itchGameId: ${EXPORT_NAME }
+          itchUsername: ${{secrets.ITCHIO_USERNAME}}
+          itchGameId: ${EXPORT_NAME}
           buildChannel: ${{ matrix.channel }}
           buildNumber: ${{ needs.version.outputs.version_hash }}

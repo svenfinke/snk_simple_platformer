@@ -2,7 +2,7 @@ name: "godot-ci export"
 on: push
 
 env:
-  GODOT_VERSION: 3.5.1
+  GODOT_VERSION: 3.5
   EXPORT_NAME: snk-simple-platformer
 
 jobs:
@@ -10,7 +10,7 @@ jobs:
     name: Windows Export
     runs-on: ubuntu-latest
     container:
-      image: docker://barichello/godot-ci:3.5.1
+      image: docker://barichello/godot-ci:3.5
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -30,7 +30,7 @@ jobs:
     name: Linux Export
     runs-on: ubuntu-latest
     container:
-      image: docker://barichello/godot-ci:3.5.1
+      image: docker://barichello/godot-ci:3.5
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -50,7 +50,7 @@ jobs:
     name: Web Export
     runs-on: ubuntu-latest
     container:
-      image: docker://barichello/godot-ci:3.5.1
+      image: docker://barichello/godot-ci:3.5
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -70,7 +70,7 @@ jobs:
     name: Mac Export
     runs-on: ubuntu-latest
     container:
-      image: docker://barichello/godot-ci:3.5.1
+      image: docker://barichello/godot-ci:3.5
     steps:
       - name: Checkout
         uses: actions/checkout@v1

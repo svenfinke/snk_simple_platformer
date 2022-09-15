@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://artwork/pixelplatformer.tres" type="TileSet" id=1]
+[ext_resource path="res://prefabs/Birdie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://prefabs/Coin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://prefabs/GameCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/GameUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://prefabs/Player.tscn" type="PackedScene" id=6]
+
+[node name="Demo" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 18, 18 )
+format = 1
+tile_data = PoolIntArray( 65538, 0, 65537, 65539, 0, 2, 65540, 0, 2, 65541, 0, 2, 65542, 0, 2, 65543, 0, 2, 65544, 0, 2, 65545, 0, 2, 65546, 0, 2, 65547, 0, 2, 65548, 0, 2, 65549, 0, 2, 65550, 0, 2, 65551, 0, 2, 65552, 0, 2, 65553, 0, 2, 65554, 0, 2, 65555, 0, 2, 65556, 0, 2, 65557, 0, 2, 65558, 0, 65539, 131074, 0, 393216, 131094, 0, 393216, 196610, 0, 393216, 196630, 0, 393216, 262146, 0, 393216, 262166, 0, 393216, 327682, 0, 393216, 327702, 0, 393216, 393218, 0, 393216, 393238, 0, 393216, 458754, 0, 393216, 458760, 0, 1, 458761, 0, 2, 458762, 0, 2, 458763, 0, 2, 458764, 0, 2, 458765, 0, 2, 458766, 0, 2, 458767, 0, 3, 458774, 0, 393216, 524290, 0, 393216, 524310, 0, 393216, 589826, 0, 393216, 589846, 0, 393216, 655362, 0, 393216, 655365, 0, 1, 655366, 0, 2, 655367, 0, 3, 655376, 0, 1, 655377, 0, 2, 655378, 0, 2, 655379, 0, 3, 655382, 0, 393216, 720898, 0, 393216, 720918, 0, 393216, 786434, 0, 393216, 786454, 0, 393216, 851970, 0, 458753, 851971, 0, 2, 851972, 0, 2, 851973, 0, 2, 851974, 0, 2, 851975, 0, 2, 851976, 0, 2, 851977, 0, 2, 851978, 0, 2, 851979, 0, 2, 851980, 0, 2, 851981, 0, 2, 851982, 0, 2, 851983, 0, 2, 851984, 0, 2, 851985, 0, 2, 851986, 0, 2, 851987, 0, 2, 851988, 0, 2, 851989, 0, 2, 851990, 0, 458755 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 175, 92 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../GameCamera")
+
+[node name="Coin2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 219, 213 )
+
+[node name="Coin" parent="." instance=ExtResource( 3 )]
+position = Vector2( 250, 106 )
+
+[node name="Coin4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 119, 166 )
+
+[node name="Coin3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 328, 164 )
+
+[node name="Coin5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 276, 104 )
+
+[node name="GameCamera" parent="." instance=ExtResource( 4 )]
+
+[node name="GameUI" parent="." instance=ExtResource( 5 )]
+
+[node name="Birdie" parent="." instance=ExtResource( 2 )]
+position = Vector2( 269, 217 )

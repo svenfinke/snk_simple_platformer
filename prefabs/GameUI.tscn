@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://artwork/pixelplatformer_theme.tres" type="Theme" id=1]
+[ext_resource path="res://prefabs/GameUI.gd" type="Script" id=2]
+[ext_resource path="res://artwork/tiles_packed.png" type="Texture" id=3]
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Points" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -195.0
+margin_top = 17.0
+margin_right = -19.0
+margin_bottom = 42.0
+theme = ExtResource( 1 )
+text = "Points: 00000100"
+align = 2
+valign = 1
+
+[node name="Hearth_01" type="Sprite" parent="."]
+position = Vector2( 30, 30 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+hframes = 20
+vframes = 9
+frame = 44
+
+[node name="Hearth_02" type="Sprite" parent="."]
+position = Vector2( 62, 30 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+hframes = 20
+vframes = 9
+frame = 44
+
+[node name="Hearth_03" type="Sprite" parent="."]
+position = Vector2( 95, 30 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+hframes = 20
+vframes = 9
+frame = 44
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+margin_left = 734.0
+margin_top = 80.0
+margin_right = 1094.0
+margin_bottom = 242.0
+texture = ExtResource( 3 )
+stretch_mode = 3

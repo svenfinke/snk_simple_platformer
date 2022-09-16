@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 export(PackedScene) var firstLevel: PackedScene
 

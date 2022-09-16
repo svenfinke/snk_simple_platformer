@@ -18,6 +18,10 @@ config/icon="res://icon.png"
 
 GlobalGameScript="*res://scripts/GlobalGameScript.gd"
 
+[display]
+
+window/size/resizable=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

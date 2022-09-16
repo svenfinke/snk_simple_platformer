@@ -4,15 +4,19 @@
 [ext_resource path="res://scenes/Menu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Level1-1.tscn" type="PackedScene" id=3]
 
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="CanvasLayer"]
 script = ExtResource( 2 )
 firstLevel = ExtResource( 3 )
 
 [node name="Start" type="Button" parent="."]
-margin_left = 456.0
-margin_top = 225.0
-margin_right = 561.0
-margin_bottom = 272.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.5
+margin_top = -23.5
+margin_right = 52.5
+margin_bottom = 23.5
 theme = ExtResource( 1 )
 text = "Start"
 

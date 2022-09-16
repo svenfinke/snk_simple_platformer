@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://artwork/pixelplatformer.tres" type="TileSet" id=1]
-[ext_resource path="res://prefabs/Birdie.tscn" type="PackedScene" id=2]
-[ext_resource path="res://prefabs/Coin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://prefabs/Enemies/Birdie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://prefabs/Collectibles/Coin.tscn" type="PackedScene" id=3]
 [ext_resource path="res://prefabs/GameCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://prefabs/GameUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://prefabs/Player.tscn" type="PackedScene" id=6]

@@ -99,7 +99,6 @@ jobs:
         channel:
           - windows
           - webgl
-          - mac
           - linux
     # name: Deploy - Itch.io ${{ matrix.template }}
     steps:

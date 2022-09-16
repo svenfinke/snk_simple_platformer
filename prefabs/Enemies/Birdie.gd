@@ -9,4 +9,4 @@ func _ready():
 
 
 func _on_Birdie_body_entered(body):
-	GlobalGameScript.health -= 1
+	GlobalGameScript.health -= 2

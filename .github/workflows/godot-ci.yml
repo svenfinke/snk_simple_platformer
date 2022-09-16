@@ -66,28 +66,30 @@ jobs:
           name: webgl
           path: ./build/webgl/
 
-  export-mac:
-    name: Mac Export
-    runs-on: ubuntu-latest
-    container:
-      image: docker://barichello/godot-ci:3.5
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Setup
-        run: |
-          mkdir -v -p build/linux build/windows build/mac build/web ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Mac Build
-        run: godot -v --export "Mac OSX" ./build/mac/$EXPORT_NAME.zip
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: mac
-          path: ./build/mac/
+  # Remove for now, as MacOs wont be usable until I configure the signing of the macos app, 
+  # and I don't really bother about that right now :D 
+  # export-mac:
+  #   name: Mac Export
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: docker://barichello/godot-ci:3.5
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v1
+  #     - name: Setup
+  #       run: |
+  #         mkdir -v -p build/linux build/windows build/mac build/web ~/.local/share/godot/templates
+  #         mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+  #     - name: Mac Build
+  #       run: godot -v --export "Mac OSX" ./build/mac/$EXPORT_NAME.zip
+  #     - name: Upload Artifact
+  #       uses: actions/upload-artifact@v1
+  #       with:
+  #         name: mac
+  #         path: ./build/mac/
 
   deploy:
-    needs: [export-windows, export-linux, export-web, export-mac]
+    needs: [export-windows, export-linux, export-web]
     name: Upload to Itch
     runs-on: ubuntu-latest
     environment: Deployment

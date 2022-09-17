@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dduiwnytwnhwy"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="TileSet" uid="uid://bvh5v11yluvge" path="res://artwork/pixelplatformer_godot4.tres" id="1_1da0f"]
-[ext_resource type="PackedScene" uid="uid://txmlc42dbsih" path="res://prefabs/Backgrounds/Background_Sky.tscn" id="1_jcd1m"]
-[ext_resource type="PackedScene" uid="uid://be8qpojaufh5o" path="res://prefabs/Enemies/Birdie.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://cmh500lgqkqsl" path="res://prefabs/Collectibles/Coin.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://prefabs/backgrounds/Background_Sky.tscn" id="1_jcd1m"]
+[ext_resource type="PackedScene" path="res://prefabs/enemies/Birdie.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://prefabs/collectibles/Coin.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://dvye4rwbrlbji" path="res://prefabs/GameCamera.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://b4b31oefl7jbd" path="res://prefabs/GameUI.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://1xuamvct7yvy" path="res://prefabs/Player.tscn" id="6"]

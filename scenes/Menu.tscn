@@ -1,23 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://b17v5nvq605ud"]
 
-[ext_resource path="res://artwork/pixelplatformer_theme.tres" type="Theme" id=1]
-[ext_resource path="res://scenes/Menu.gd" type="Script" id=2]
-[ext_resource path="res://scenes/Level1-1.tscn" type="PackedScene" id=3]
+[ext_resource type="Theme" uid="uid://dpudwr7i32ra6" path="res://artwork/pixelplatformer_theme.tres" id="1"]
+[ext_resource type="Script" path="res://scenes/Menu.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dbuj2wup7uhjd" path="res://scenes/Level1-1.tscn" id="3"]
 
 [node name="Menu" type="CanvasLayer"]
-script = ExtResource( 2 )
-firstLevel = ExtResource( 3 )
+script = ExtResource("2")
+firstLevel = ExtResource("3")
 
 [node name="Start" type="Button" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -52.5
-margin_top = -23.5
-margin_right = 52.5
-margin_bottom = 23.5
-theme = ExtResource( 1 )
+offset_left = -52.5
+offset_top = -23.5
+offset_right = 52.5
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
 text = "Start"
 
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]

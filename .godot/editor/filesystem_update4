@@ -1,0 +1,17 @@
+res://scenes/Demo.tscn
+res://artwork/pixelplatformer_theme.tres
+res://artwork/pixelplatformer_godot4.tres
+res://scenes/Menu.tscn
+res://prefabs/Player.gd
+res://scenes/Menu.gd
+res://scripts/LevelManager.gd
+res://prefabs/Enemies/Birdie.gd
+res://prefabs/Collectibles/Coin.tscn
+res://prefabs/GameUI.tscn
+res://prefabs/Collectibles/Coin.gd
+res://prefabs/Enemies/Birdie.tscn
+res://prefabs/Player.tscn
+res://prefabs/Backgrounds/Background_Sky.tscn
+res://prefabs/GameCamera.tscn
+res://scenes/Level1-1.tscn
+res://scenes/Level1-2.tscn

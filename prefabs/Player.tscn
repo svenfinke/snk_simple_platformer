@@ -1,8 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://1xuamvct7yvy"]
+[gd_scene load_steps=29 format=3 uid="uid://1xuamvct7yvy"]
 
 [ext_resource type="Texture2D" uid="uid://b1filqlnbg11o" path="res://artwork/characters_packed.png" id="1"]
 [ext_resource type="Script" path="res://prefabs/Player.gd" id="2"]
 [ext_resource type="Shader" uid="uid://cskh1bppvfkc7" path="res://artwork/shader/blink.tres" id="2_jxftm"]
+[ext_resource type="AudioStream" uid="uid://cfh0hy5avv50i" path="res://artwork/sfx/hurt.wav" id="4_vyv3p"]
+[ext_resource type="AudioStream" uid="uid://cddn5qu0nhiyb" path="res://artwork/sfx/hearth.wav" id="5_v6h12"]
+[ext_resource type="AudioStream" uid="uid://b8r28hsfe1pmy" path="res://artwork/sfx/coin.wav" id="6_tth3e"]
+[ext_resource type="AudioStream" uid="uid://basyuipfytlrf" path="res://artwork/sfx/jump.wav" id="7_bgykx"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vr0oo"]
 lifetime_randomness = 1.0
@@ -278,3 +282,15 @@ parameters/Run/blend_position = 0.664479
 libraries = {
 "": SubResource("AnimationLibrary_iodbv")
 }
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vyv3p")
+
+[node name="Hearth" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_v6h12")
+
+[node name="Coin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_tth3e")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_bgykx")

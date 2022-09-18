@@ -8,3 +8,6 @@ res://prefabs/Player.gd
 res://prefabs/scripted_objects/JumpPad.gd
 res://prefabs/scripted_objects/MovingPlatform.tscn
 res://prefabs/scripted_objects/MovingPlatform.gd
+res://prefabs/collectibles/Coin.tscn
+res://prefabs/collectibles/Hearth.tscn
+res://prefabs/enemies/Birdie.tscn

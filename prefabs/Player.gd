@@ -13,6 +13,7 @@ var _velocity: Vector2 = Vector2.ZERO
 
 func _ready():
 	GlobalGameScript.healthChanged.connect(_on_healthChanged)
+	GlobalGameScript.scoreChanged.connect(_on_scoreChanged)
 
 func _physics_process(delta: float) -> void:
 	var is_jumping: bool = (Input.is_action_just_pressed("ui_select") || Input.is_action_just_pressed("ui_up")) and is_on_floor()
@@ -43,11 +44,13 @@ func _physics_process(delta: float) -> void:
 		
 	if is_jumping:
 		_velocity.y = -jump_strength
+		$Jump.playing = true
 	elif is_jumping_cancelled:
 		_velocity.y = 0.0
 	elif is_thrown:
 		_velocity = _velocity + externalForce
 		externalForce = Vector2.ZERO
+		$Jump.playing = true
 	
 	# Animation
 	$AnimationTree.set('parameters/Run/blend_position', _velocity.x)
@@ -70,7 +73,13 @@ func _handle_collsions() -> void:
 			elif collision.get_collider().has_method("handle_player_collision"):
 				collision.get_collider().handle_player_collision(self)
 
-#SIGNALS
+# SIGNALS
 func _on_healthChanged(oldValue, newValue):
 	if (oldValue > newValue) && newValue > 0:
 		$AnimationPlayer.play("hit")
+		$Hurt.playing = true
+	else:
+		$Hearth.playing = true
+
+func _on_scoreChanged() -> void:
+	$Coin.playing = true

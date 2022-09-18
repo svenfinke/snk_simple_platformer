@@ -10,6 +10,7 @@ size = Vector2(54, 18)
 position = Vector2(41.1035, 0)
 rotation = 3.14159
 progress = 272.897
+cubic_interp = false
 script = ExtResource("1_ple2r")
 
 [node name="StaticBody2D" type="AnimatableBody2D" parent="."]

@@ -11,3 +11,13 @@ res://prefabs/scripted_objects/MovingPlatform.gd
 res://prefabs/collectibles/Coin.tscn
 res://prefabs/collectibles/Hearth.tscn
 res://prefabs/enemies/Birdie.tscn
+res://scenes/GameOver.tscn
+res://prefabs/backgrounds/Background_Grass.tscn
+res://scenes/Menu.tscn
+res://scripts/GlobalGameScript.gd
+res://scripts/LevelManager.gd
+res://scenes/GameOver.gd
+res://scenes/Level1-1.tscn
+res://scenes/Level0-2.tscn
+res://scenes/Level0-1.tscn
+res://prefabs/enemies/Birdie.gd

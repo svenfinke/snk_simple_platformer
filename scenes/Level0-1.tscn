@@ -1,19 +1,24 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://l6vbh744mdqy"]
 
 [ext_resource type="PackedScene" uid="uid://1xuamvct7yvy" path="res://prefabs/Player.tscn" id="2"]
 [ext_resource type="TileSet" uid="uid://bvh5v11yluvge" path="res://artwork/pixelplatformer_godot4.tres" id="2_6dbp4"]
+[ext_resource type="PackedScene" uid="uid://b7ewyqj5mdof0" path="res://prefabs/scripted_objects/JumpPad.tscn" id="2_swpy8"]
 [ext_resource type="PackedScene" uid="uid://b4b31oefl7jbd" path="res://prefabs/GameUI.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://dvye4rwbrlbji" path="res://prefabs/GameCamera.tscn" id="4"]
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="5"]
-[ext_resource type="PackedScene" path="res://prefabs/backgrounds/Background_Sky.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://txmlc42dbsih" path="res://prefabs/backgrounds/Background_Sky.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://dqbuoix262w7e" path="res://prefabs/FinishLine.tscn" id="7"]
-[ext_resource type="PackedScene" path="res://prefabs/enemies/Birdie.tscn" id="8"]
-[ext_resource type="PackedScene" path="res://prefabs/collectibles/Coin.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://buup4nrhivpoq" path="res://prefabs/enemies/Birdie.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://biemfw2yvdgo0" path="res://prefabs/collectibles/Coin.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://bwntqf45cmg0q" path="res://prefabs/collectibles/Hearth.tscn" id="10_fw7ca"]
 
-[node name="Level1-1" type="Node2D"]
+[node name="Level0-1" type="Node2D"]
 script = ExtResource("5")
-nextScene = "res://scenes/Level1-2.tscn"
+nextScene = "res://scenes/Level0-2.tscn"
+
+[node name="JumpPad" parent="." instance=ExtResource("2_swpy8")]
+position = Vector2(190, 153)
+padVelocity = -600
 
 [node name="Terrain02" type="TileMap" parent="."]
 tile_set = ExtResource("2_6dbp4")
@@ -31,13 +36,13 @@ format = 2
 layer_0/tile_data = PackedInt32Array(917520, 524288, 3, 917521, 524288, 3, 917522, 524288, 3, 917523, 524288, 3, 917531, 524288, 3, 917532, 524288, 3, 917533, 524288, 3, 917534, 524288, 3, 917535, 524288, 3, 917545, 524288, 3, 917546, 524288, 3, 917547, 524288, 3, 917548, 524288, 3, 917549, 524288, 3, 917550, 524288, 3, 917551, 524288, 3, 917552, 524288, 3, 917553, 524288, 3, 917554, 524288, 3, 917555, 524288, 3, 917556, 524288, 3, 917557, 524288, 3, 917558, 524288, 3, 917559, 524288, 3, 917560, 524288, 3, 917561, 524288, 3, 917562, 524288, 3, 917563, 524288, 3, 917564, 524288, 3, 917565, 524288, 3, 917566, 524288, 3)
 
 [node name="Player" parent="." instance=ExtResource("2")]
-position = Vector2(206, 131)
+position = Vector2(219, 131)
 
 [node name="RemoteCamera" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../GameCamera")
 
 [node name="GameCamera" parent="." instance=ExtResource("4")]
-position = Vector2(206, 131)
+position = Vector2(219, 131)
 
 [node name="GameUI" parent="." instance=ExtResource("3")]
 

@@ -1,9 +1,12 @@
 extends Node
 
 @onready var menuScene = load("res://scenes/Menu.tscn")
+@onready var gameOverScene = load("res://scenes/GameOver.tscn")
 
 signal healthChanged(oldValue, newValue)
 signal scoreChanged
+
+var currentLevel: String
 
 var _score: int = 0
 var score:
@@ -23,9 +26,18 @@ var initialHealth: int = 6
 
 func _process(_delta) -> void:
 	if health <= 0:
-		reset()
+		die()
 
-func reset() -> void:
+func die() -> void:
+	reset()
+	get_tree().change_scene_to_packed(gameOverScene)
+
+func reset(jumpToMenu: bool = true) -> void:
 	health = initialHealth
 	score = 0
-	get_tree().change_scene_to_packed(menuScene)
+
+func restart(jumpToMenu: bool = true) -> void:
+	if jumpToMenu:
+		get_tree().change_scene_to_packed(menuScene)
+	else:
+		get_tree().change_scene_to_file(currentLevel)

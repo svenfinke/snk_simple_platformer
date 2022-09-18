@@ -1,3 +1,63 @@
-[gd_scene format=3 uid="uid://bicax5mrindnj"]
+[gd_scene load_steps=5 format=3 uid="uid://bicax5mrindnj"]
 
-[node name="GameOver" type="Node2D"]
+[ext_resource type="Script" path="res://scenes/GameOver.gd" id="1_3hl5c"]
+[ext_resource type="PackedScene" uid="uid://txmlc42dbsih" path="res://prefabs/backgrounds/Background_Sky.tscn" id="1_4rob8"]
+[ext_resource type="Theme" uid="uid://dpudwr7i32ra6" path="res://artwork/pixelplatformer_theme.tres" id="2_drs1p"]
+[ext_resource type="AudioStream" uid="uid://7m8hl2ts5pj7" path="res://artwork/sfx/game_over.wav" id="4_xentt"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_3hl5c")
+
+[node name="Background_Sky" parent="." instance=ExtResource("1_4rob8")]
+
+[node name="RestartLevel" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -160.0
+offset_right = 91.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_drs1p")
+text = " Restart Level "
+
+[node name="RestartGame" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = -110.0
+offset_right = 97.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_drs1p")
+text = " Restart Game "
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -154.0
+offset_top = -78.0
+offset_right = 154.0
+offset_bottom = -5.0
+grow_horizontal = 2
+theme = ExtResource("2_drs1p")
+theme_type_variation = &"HeaderLarge"
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xentt")
+autoplay = true
+
+[connection signal="pressed" from="RestartLevel" to="." method="_on_restart_level_pressed"]
+[connection signal="pressed" from="RestartGame" to="." method="_on_restart_game_pressed"]

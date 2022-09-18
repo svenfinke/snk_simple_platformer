@@ -69,7 +69,7 @@ func _handle_collsions() -> void:
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
 			if collision.get_collider().is_in_group("Deadly"):
-				GlobalGameScript.reset()
+				GlobalGameScript.die()
 			elif collision.get_collider().has_method("handle_player_collision"):
 				collision.get_collider().handle_player_collision(self)
 

@@ -1,5 +1,9 @@
-CollisionShape2D
 AudioStreamPlayer2D
+GPUParticles2D
+Label
+Button
+CanvasLayer
+CollisionShape2D
 TileMap
 AnimatableBody2D
 RigidBody2D
@@ -9,4 +13,3 @@ PathFollow2D
 Sprite2D
 AnimationPlayer
 Area2D
-GPUParticles2D

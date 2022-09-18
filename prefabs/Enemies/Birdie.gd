@@ -10,4 +10,10 @@ func _ready():
 
 
 func _on_Birdie_body_entered(body):
-	GlobalGameScript.health -= 2
+	if body.global_position.y < global_position.y:
+		$AnimationPlayer.play("Die")
+		await get_tree().create_timer(0.7).timeout
+		queue_free()
+	else:
+		GlobalGameScript.health -= 2
+	

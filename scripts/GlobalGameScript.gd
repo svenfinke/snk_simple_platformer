@@ -7,6 +7,7 @@ signal healthChanged(oldValue, newValue)
 signal scoreChanged
 
 var currentLevel: String
+var vulnerable: bool = true
 
 var _score: int = 0
 var score:
@@ -20,8 +21,18 @@ var health:
 	get:
 		return _health
 	set(value):
-		healthChanged.emit(health, value)
-		_health = value
+		if value < health:
+			if vulnerable:
+				vulnerable = false
+				healthChanged.emit(health, value)
+				_health = value
+				await get_tree().create_timer(0.4).timeout
+				vulnerable = true
+			else:
+				return
+		else:
+			healthChanged.emit(health, value)
+			_health = value
 var initialHealth: int = 6
 
 func _process(_delta) -> void:

@@ -2,12 +2,12 @@
 
 [ext_resource type="Theme" uid="uid://dpudwr7i32ra6" path="res://artwork/pixelplatformer_theme.tres" id="1"]
 [ext_resource type="Script" path="res://scenes/Menu.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://l6vbh744mdqy" path="res://scenes/Level0-1.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://biiq6osxxw6fd" path="res://scenes/World01/Level011.tscn" id="2_saypc"]
 [ext_resource type="PackedScene" uid="uid://txmlc42dbsih" path="res://prefabs/backgrounds/Background_Sky.tscn" id="3_qalvm"]
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("2")
-firstLevel = ExtResource("3")
+firstLevel = ExtResource("2_saypc")
 
 [node name="Background_Sky" parent="." instance=ExtResource("3_qalvm")]
 

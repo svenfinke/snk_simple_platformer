@@ -64,7 +64,6 @@ _data = {
 }
 
 [node name="JumpPad" type="StaticBody2D" groups=["JumpPad"]]
-position = Vector2(9, 7)
 script = ExtResource("1_r2lhy")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]

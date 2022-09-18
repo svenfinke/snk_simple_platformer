@@ -1,9 +1,21 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://bvh5v11yluvge"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://bvh5v11yluvge"]
 
 [ext_resource type="Texture2D" uid="uid://b5ji5kovvue50" path="res://artwork/tiles_packed.png" id="1_1m35i"]
+[ext_resource type="PackedScene" uid="uid://biemfw2yvdgo0" path="res://prefabs/collectibles/Coin.tscn" id="3_cokbv"]
+[ext_resource type="PackedScene" uid="uid://b7ewyqj5mdof0" path="res://prefabs/scripted_objects/JumpPad.tscn" id="4_bidio"]
+[ext_resource type="PackedScene" uid="uid://bfgw67kuwelil" path="res://prefabs/scripted_objects/MovingPlatform.tscn" id="5_2g6bk"]
+[ext_resource type="PackedScene" uid="uid://dth0kfoadbdcl" path="res://prefabs/scripted_objects/Box.tscn" id="5_xt0xi"]
+[ext_resource type="PackedScene" uid="uid://62k6urkq64h4" path="res://prefabs/enemies/Spikey.tscn" id="6_akrm6"]
+[ext_resource type="PackedScene" uid="uid://bersgbms706l2" path="res://prefabs/enemies/Clampy.tscn" id="7_61gal"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_5ikrg"]
 tile_data = PackedInt32Array(0, 65536, 1, 65536, 65536, 6, 131072, 65536, 6, 196608, 65536, 7, 1, 131072, 1, 65537, 131072, 6, 131073, 131072, 6, 196609, 131072, 7, 2, 131072, 1, 65538, 131072, 6, 131074, 131072, 6, 196610, 131072, 7, 3, 131072, 1, 65539, 131072, 6, 131075, 131072, 6, 196611, 131072, 7, 4, 196608, 1, 65540, 196608, 6, 131076, 196608, 6, 196612, 196608, 7)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_4vvxv"]
+tile_data = PackedInt32Array(0, 1114112, 0, 65536, 1114112, 1, 131072, 1114112, 2, 1, 1179648, 0, 65537, 1179648, 1, 131073, 1114112, 4, 2, 1245184, 0, 65538, 1245184, 1, 131074, 1245184, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_qb3qw"]
+tile_data = PackedInt32Array(0, 1114112, 0, 65536, 1114112, 2, 1, 1245184, 0, 65537, 1245184, 2)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fe5p7"]
 texture = ExtResource("1_1m35i")
@@ -355,9 +367,23 @@ use_texture_padding = false
 9:3/0 = 0
 9:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:3/0/physics_layer_0/angular_velocity = 0.0
+10:3/next_alternative_id = 5
 10:3/0 = 0
 10:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:3/0/physics_layer_0/angular_velocity = 0.0
+10:3/1 = 1
+10:3/1/transpose = true
+10:3/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:3/1/physics_layer_0/angular_velocity = 0.0
+10:3/2 = 2
+10:3/2/flip_h = true
+10:3/2/transpose = true
+10:3/2/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:3/2/physics_layer_0/angular_velocity = 0.0
+10:3/3 = 3
+10:3/3/flip_v = true
+10:3/3/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:3/3/physics_layer_0/angular_velocity = 0.0
 11:3/0 = 0
 11:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:3/0/physics_layer_0/angular_velocity = 0.0
@@ -971,6 +997,14 @@ use_texture_padding = false
 19:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:8/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c3mid"]
+scenes/2/scene = ExtResource("3_cokbv")
+scenes/3/scene = ExtResource("4_bidio")
+scenes/4/scene = ExtResource("5_2g6bk")
+scenes/5/scene = ExtResource("5_xt0xi")
+scenes/7/scene = ExtResource("6_akrm6")
+scenes/8/scene = ExtResource("7_61gal")
+
 [resource]
 tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
@@ -991,5 +1025,10 @@ terrain_set_2/terrain_0/name = "Platform"
 terrain_set_2/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_2/terrain_1/name = "Pipes"
 terrain_set_2/terrain_1/color = Color(0.152941, 0.415686, 0.858824, 1)
+custom_data_layer_0/name = "Script"
+custom_data_layer_0/type = 25
 sources/0 = SubResource("TileSetAtlasSource_fe5p7")
+sources/1 = SubResource("TileSetScenesCollectionSource_c3mid")
 pattern_0 = SubResource("TileMapPattern_5ikrg")
+pattern_1 = SubResource("TileMapPattern_4vvxv")
+pattern_2 = SubResource("TileMapPattern_qb3qw")

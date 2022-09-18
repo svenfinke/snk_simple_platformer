@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bersgbms706l2"]
+
+[ext_resource type="Texture2D" uid="uid://b1filqlnbg11o" path="res://artwork/characters_packed.png" id="1_pmj3s"]
+[ext_resource type="Script" path="res://prefabs/enemies/Clampy.gd" id="1_sauij"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wy1k"]
+radius = 6.0
+height = 14.0
+
+[sub_resource type="Animation" id="Animation_jd4ns"]
+resource_name = "Default"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2d:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(3, 1), Vector2i(2, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4c6p7"]
+_data = {
+"Default": SubResource("Animation_jd4ns")
+}
+
+[node name="Clampy" type="StaticBody2D"]
+script = ExtResource("1_sauij")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_5wy1k")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("1_pmj3s")
+hframes = 9
+vframes = 3
+frame = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Default"
+libraries = {
+"": SubResource("AnimationLibrary_4c6p7")
+}

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dth0kfoadbdcl"]
+
+[ext_resource type="Script" path="res://prefabs/scripted_objects/Box.gd" id="1_17rqx"]
+[ext_resource type="Texture2D" uid="uid://b5ji5kovvue50" path="res://artwork/tiles_packed.png" id="1_mqer0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7bme"]
+size = Vector2(16, 17)
+
+[node name="Box" type="StaticBody2D"]
+script = ExtResource("1_17rqx")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_e7bme")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("1_mqer0")
+hframes = 20
+vframes = 9
+frame = 11

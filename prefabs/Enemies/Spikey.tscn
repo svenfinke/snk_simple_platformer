@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://62k6urkq64h4"]
+
+[ext_resource type="Texture2D" uid="uid://b1filqlnbg11o" path="res://artwork/characters_packed.png" id="1_pm16t"]
+[ext_resource type="Script" path="res://prefabs/enemies/Spikey.gd" id="1_vbnyb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qu3pg"]
+height = 20.0
+
+[node name="Spikey" type="CharacterBody2D"]
+script = ExtResource("1_vbnyb")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("1_pm16t")
+hframes = 9
+vframes = 3
+frame = 8
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qu3pg")

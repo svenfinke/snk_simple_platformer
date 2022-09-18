@@ -21,3 +21,10 @@ res://scenes/Level1-1.tscn
 res://scenes/Level0-2.tscn
 res://scenes/Level0-1.tscn
 res://prefabs/enemies/Birdie.gd
+res://scenes/World01/Level011.tscn
+res://prefabs/scripted_objects/Box.tscn
+res://prefabs/scripted_objects/Box.gd
+res://prefabs/enemies/Spikey.tscn
+res://prefabs/enemies/Spikey.gd
+res://prefabs/enemies/Clampy.tscn
+res://prefabs/enemies/Clampy.gd

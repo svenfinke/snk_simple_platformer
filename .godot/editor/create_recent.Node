@@ -1,9 +1,12 @@
+Node2D
+AnimationTree
 AnimationPlayer
-Sprite2D
 CollisionShape2D
+Area2D
+CharacterBody2D
+Sprite2D
 StaticBody2D
 Timer
-CharacterBody2D
 TileMap
 RemoteTransform2D
 AudioStreamPlayer2D
@@ -15,4 +18,3 @@ AnimatableBody2D
 RigidBody2D
 Path2D
 PathFollow2D
-Area2D

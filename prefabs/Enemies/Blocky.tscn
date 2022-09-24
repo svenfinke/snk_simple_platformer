@@ -1,0 +1,133 @@
+[gd_scene load_steps=15 format=3 uid="uid://cka34o1in102v"]
+
+[ext_resource type="Script" path="res://prefabs/enemies/Blocky.gd" id="1_dk725"]
+[ext_resource type="Texture2D" uid="uid://b1filqlnbg11o" path="res://artwork/characters_packed.png" id="1_s53t6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04bwo"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fni22"]
+radius = 61.0082
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m1iq4"]
+animation = &"angry"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_34e17"]
+animation = &"peaceful"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_frwx4"]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k3gko"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f2pnf"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7xbwx"]
+states/End/position = Vector2(1060, 108.25)
+states/angry/node = SubResource("AnimationNodeAnimation_m1iq4")
+states/angry/position = Vector2(658.5, 100.125)
+states/peaceful/node = SubResource("AnimationNodeAnimation_34e17")
+states/peaceful/position = Vector2(379.5, 100.25)
+transitions = ["Start", "peaceful", SubResource("AnimationNodeStateMachineTransition_frwx4"), "peaceful", "angry", SubResource("AnimationNodeStateMachineTransition_k3gko"), "angry", "peaceful", SubResource("AnimationNodeStateMachineTransition_f2pnf")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_8obdv"]
+
+[sub_resource type="Animation" id="Animation_1k5wj"]
+resource_name = "peaceful"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2d/CharactersPacked:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(4, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6vadd"]
+resource_name = "angry"
+length = 1.05
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2d/CharactersPacked:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(5, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2d:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3, 2, 0),
+"points": PackedFloat32Array(-1, 0, 0, 0.3, 1.95357, -70, -0.0875, 18.5, 0.0875, -18.5, -72.5207, -0.0573029, -13.2643, 0.0448088, 10.3722, -1, -0.0645486, -0.211587, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 0.9, 1)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:doDamage")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvtff"]
+_data = {
+"angry": SubResource("Animation_6vadd"),
+"peaceful": SubResource("Animation_1k5wj")
+}
+
+[node name="Blocky" type="CharacterBody2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_dk725")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_04bwo")
+
+[node name="DetectionRange" type="Area2D" parent="CollisionShape2d"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="CollisionShape2d/DetectionRange"]
+shape = SubResource("CircleShape2D_fni22")
+
+[node name="CharactersPacked" type="Sprite2D" parent="CollisionShape2d"]
+texture = ExtResource("1_s53t6")
+hframes = 9
+vframes = 3
+frame = 13
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_7xbwx")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8obdv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hvtff")
+}
+
+[connection signal="body_entered" from="CollisionShape2d/DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="CollisionShape2d/DetectionRange" to="." method="_on_detection_range_body_exited"]

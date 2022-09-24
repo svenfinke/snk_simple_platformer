@@ -65,6 +65,7 @@ _data = {
 
 [node name="JumpPad" type="StaticBody2D" groups=["JumpPad"]]
 script = ExtResource("1_r2lhy")
+padVelocity = -600
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 texture = ExtResource("1_m4uwq")

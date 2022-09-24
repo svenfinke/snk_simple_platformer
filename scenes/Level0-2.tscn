@@ -117,11 +117,9 @@ position = Vector2(812, 130)
 
 [node name="JumpPad" parent="." instance=ExtResource("9_82pa8")]
 position = Vector2(273, 153)
-padVelocity = -400
 
 [node name="JumpPad2" parent="." instance=ExtResource("9_82pa8")]
 position = Vector2(1177, 387)
-padVelocity = -600
 
 [node name="Path2d" type="Path2D" parent="."]
 position = Vector2(285, 61)
